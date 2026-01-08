@@ -1,0 +1,23 @@
+Medicine (Master),Why High Risk?,,,
+Dolo 650,High Volume: High sales frequency increases the probability of typing errors and theft masking.,,,
+Azithromycin 500,"Name Confusion: Common antibiotic often abbreviated (""Azithro"", ""Azi"") or confused with 250mg variants.",,,
+Pantoprazole 40,"High Frequency: Frequently prescribed, leading to ""autopilot"" data entry errors by staff.",,,
+,,,,
+Entered Name Variant (HMS),Mapped To Master SKU,Action Taken,,
+Dolo,Dolo 650,"Map: Standardize to Master. Coach: ""Always type 650.""",,
+Dolo 650,Dolo 650,Map: No action needed.,,
+Dolo kind,Dolo 650,Map: Standardize. Flag: Unusual variant; check if this is a sub-brand.,,
+Azithro 500,Azithromycin 500,"Map: Standardize. Coach: ""Avoid abbreviations.""",,
+Azithromycin,Azithromycin 500,Map: Standardize. Flag: Critical missing dosage (500 vs 250).,,
+,,,,
+,,,,
+,,,,
+Medicine,Expected,Actual,Diff,Flag/Action
+Dolo 650,"1,470","1,440",-30,CRITICAL: High variance (-2%). Check for theft or unbilled bulk sale.
+Azithro 500,490,480,-10,WARNING: Check if a 10-pack was sold but entered as 1 unit.
+,,,,
+,,,,
+Date,Medicine,Error Type,Repeated?,Staff Action
+Aug 2,Dolo 650,"Name Variant (""Dolo kind"")",Yes,Verbal Reminder
+Aug 2,Dolo 650,Inventory Shortage (-30),No,Investigating
+Aug 2,Azithromycin,Missing Dosage Info,Yes,SOP Update Required
